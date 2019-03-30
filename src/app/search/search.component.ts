@@ -24,6 +24,8 @@ export class SearchComponent implements OnInit {
     this.http.get<ProfileResponse>("https://api.github.com/users/anm05?access_token=852254f32dd6f78719a0630b5ef4ddf9eaf041f3").subscribe(response=>{
       this.user= new Users(response.login,response.avatar_url, response.public_repos, response.followers, response.following)
       //successfull request
+    },err=>{
+      console.log("An error has occured");
     })
   }
 
