@@ -74,7 +74,7 @@ export class ProfileRequestService {
         this.repos.description=response.description;
         this.repos.html_url=response.html_url;
         
-        resolve();
+        resolve([]);
       },
       error=>{
         alert("An Error has occurred processing your request");
