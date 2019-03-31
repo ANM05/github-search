@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Users} from '../user-class/users';
 import {ProfileRequestService} from '../profile-http/profile-request.service';
+import {Repositories} from '../repositories';
 
 @Component({
   selector: 'app-search',
@@ -10,12 +11,15 @@ import {ProfileRequestService} from '../profile-http/profile-request.service';
 })
 export class SearchComponent implements OnInit {
   user:Users;
+  repos:Repositories;
 
   constructor(private profileService:ProfileRequestService) { }
 
   ngOnInit() {
-    this.profileService.profileRequest()
-    this.user = this.profileService.user  
+    this.profileService.profileRequest();
+    this.user = this.profileService.user;  
+    this.profileService.reposRequest();
+    this.repos = this.profileService.repos;
   }
 
 }
