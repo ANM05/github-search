@@ -12,12 +12,12 @@ import {from, Observable} from 'rxjs';
 export class ProfileRequestService {
  public  userName: string;
   user:Users;
-  repos:Repositories;
+  repos:Repositories[];
   apiUrl = "https://api.github.com/users/";
 
   constructor(private http:HttpClient) {
     this.user= new Users("","","",0,0,0,"","","","");
-    this.repos=new Repositories("","","");
+    this.repos= [];
     this.userName = "anm05";
    }
     
@@ -63,11 +63,30 @@ export class ProfileRequestService {
     return promise;
    }
 
-   reposRequest(): Observable<Repositories[]>{
-     return this.http.get<Repositories[]>(this.apiUrl+this.userName+"/repos"+environment.token)
-     
+   reposRequest(){
+    interface reposResponse{
+      name:string;
+      description:string;
+      html_url:string;
+  }
+    let promise = new Promise((resolve,reject)=>{
+     this.http.get<reposResponse[]>(this.apiUrl+this.userName+"/repos"+environment.token).toPromise().then(response=>{
+ 
+      response.forEach(repo => {
+        this.repos.push(new Repositories(repo.name,repo.description,repo.html_url))
+      });
+
+      console.log(response);
+      resolve()
+     },error=>{
+       reject(error)
+     })
+  })
+     return promise
    }
    update(userName:string){
     this.userName=userName;
-  }
+   }
 }
+   
+

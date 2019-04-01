@@ -27,13 +27,9 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.profileService.profileRequest();
     this.user = this.profileService.user;  
-    this.profileService.reposRequest().subscribe(data => {
-     // console.log(data);
-      data.forEach(repo => {
-        this.repos.push(repo);
-      });
-      
-    });
+    this.profileService.reposRequest();
+    this.repos = this.profileService.repos;  
+    
   
   }
 

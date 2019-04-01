@@ -3,7 +3,7 @@
     <div class="col col-6 left-style">
     <div>
     <div class="jumbotron">
-        <h3> {{user.name}} </h3> 
+        <h3>{{user.name}} </h3> 
         <p>Username: ({{user.login}})</p>
     </div>
     <div>
@@ -23,11 +23,11 @@
     </p>
  </div>
  <div class="col col-6">
-     <form (ngSubmit)="searchProfile()" #searchForm='ngForm'>
+     <form>
          <div class="form-group">
             <input type="text" class="form-control" placeholder="Type in username">
          </div>
-         <button type="submit" class="btn btn-success btn-lg">Get started</button>
+         <button type="submit" class="btn btn-success btn-lg" (click)="searchProfile()">Get started</button>
      </form>
      <hr class="hrstyle">
   <div *ngFor="let dispRepo of repos">    
