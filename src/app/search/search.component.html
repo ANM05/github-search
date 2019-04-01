@@ -1,15 +1,16 @@
 <ng-progress></ng-progress>
-<div class="row justify-content-center">
-    <div class="col col-6">
-<div class="panel panel-default">
+<div class="row">
+    <div class="col col-6 left-style">
+    <div>
     <div class="jumbotron">
         <h3> {{user.name}} </h3> 
         <p>Github username: ({{user.login}})</p>
     </div>
-    <div class="panel-body">
+    <div>
         <div align="center">
         <img src="{{user.avatar_url}}" class="img-fluid img-thumbnail rounded" alt="Profile picture">
         </div>
+        <br>
         <ul class="list-group">
             <li class="list-group-item">Bio: {{user.bio}} </li>
             <li class="list-group-item">Location: {{user.location}} </li>
@@ -17,8 +18,16 @@
         </ul>
     </div>
     </div>
+    <p>
+        <span class="label label-default">{{user.followers}}</span>
+    </p>
  </div>
  <div class="col col-6">
+     <form action="">
+         <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+         </div>
+     </form>
  <P>Show the number of repositories here</P>
   <div *ngFor="let dispRepo of repos">
       <p>hey {{dispRepo.name}}</p>

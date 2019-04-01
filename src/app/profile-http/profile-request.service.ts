@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Users} from '../user-class/users';
 import {environment} from '../../environments/environment';
 import {Repositories} from '../repositories';
+import { Subscriber } from 'rxjs';
 
 
 
@@ -11,7 +12,7 @@ import {Repositories} from '../repositories';
 })
 export class ProfileRequestService {
   user:Users;
-  public repos:Repositories;
+  repos:Repositories;
 
   constructor(private http:HttpClient) {
     this.user= new Users("","","",0,0,0,"","","","");
@@ -61,31 +62,6 @@ export class ProfileRequestService {
    }
 
    reposRequest(){
-    interface reposResponse{
-      name:string;
-      description:string;
-      html_url:string;
-      
-    }
-
-    let promise=new Promise((resolve,reject)=>{
-      this.http.get<reposResponse>(environment.reposUrl).toPromise().then(response=>{
-        this.repos.name=response.name;
-        this.repos.description=response.description;
-        this.repos.html_url=response.html_url;
-        
-        resolve([]);
-      },
-      error=>{
-        alert("An Error has occurred processing your request");
-
-        reject(error);
-      }
-      
-      )
-
-    });
-    console.log(promise);
-    return promise;
+    
    }
 }
