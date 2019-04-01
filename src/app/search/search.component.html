@@ -19,7 +19,9 @@
     </div>
     </div>
     <p>
-        <span class="label label-default">{{user.followers}}</span>
+        <span class="badge badge-pill badge-secondary">Public repositories: {{user.public_repos}}</span>
+        <span class="badge badge-pill badge-secondary">Followers: {{user.followers}}</span>
+        <span class="badge badge-pill badge-secondary">Following: {{user.following}}</span>
     </p>
  </div>
  <div class="col col-6">
@@ -41,15 +43,4 @@
     <hr class="hrstyle">
   </div>
 </div>
-</div>
-
-<p>Somehow displays but still has an error: {{user.login}}</p>
-
-<p>Number of public repositories: {{user.public_repos}} </p>
-<p>Followers: {{user.followers}} </p>
-<P>Following: {{user.following}} </P>
-<div >
-    <ul>
-        <li>{{repos.name}} </li>
-    </ul>
 </div>
