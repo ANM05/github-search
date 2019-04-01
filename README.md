@@ -8,12 +8,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is a webpage that allows a user to search any user on github and be able to see a list of their repositories
 
 ## Project setup and installation
--Install node js and npm
--Install Angular Cli
--git clone https://github.com/Antavio/Github-Search.git
--cd Github-Search
--atom . //For those using atom text editor.
--code . //For those using Visual Studio editor.
+1.Install node js and npm
+2.Install Angular Cli
+3.git clone https://github.com/Antavio/Github-Search.git
+4.cd Github-Search
+5.atom . //For those using atom text editor.
+6.code . //For those using Visual Studio editor.
 
 ## Development server
 
