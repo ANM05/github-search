@@ -15,19 +15,14 @@ export class SearchComponent implements OnInit {
   user:Users;
   repos:Repositories[] = [];
 
-  constructor(private profileService:ProfileRequestService) { }
-
   searchProfile(){
     this.profileService.update(this.userName);
     this.profileService.profileRequest();
-    this.profileService.reposRequest().subscribe(data => {
-      // console.log(data);
-       data.forEach(repo => {
-         this.repos.push(repo);
-       });
-       
-     });
+    this.profileService.reposRequest();
   }
+
+  constructor(private profileService:ProfileRequestService) { }
+
 
   ngOnInit() {
     this.profileService.profileRequest();
