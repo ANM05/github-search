@@ -3,14 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {Users} from '../user-class/users';
 import {environment} from '../../environments/environment';
 import {Repositories} from '../repositories';
-import { Subscriber } from 'rxjs';
-
+import {from, Observable} from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileRequestService {
+  userName ="anm05";
   user:Users;
   repos:Repositories;
 
@@ -62,6 +62,7 @@ export class ProfileRequestService {
    }
 
    reposRequest(){
-    
+     console.log(this.reposRequest())
+    return this.http.get<Repositories>(environment.reposUrl)
    }
 }
