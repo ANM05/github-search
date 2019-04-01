@@ -13,15 +13,21 @@ import {Repositories} from '../repositories';
 export class SearchComponent implements OnInit {
   userName = "anm05";
   user:Users;
-  repos:Repositories;
+  repos:Repositories[] = [];
 
   constructor(private profileService:ProfileRequestService) { }
 
   ngOnInit() {
     this.profileService.profileRequest();
     this.user = this.profileService.user;  
-    this.profileService.reposRequest();
-    this.repos = this.profileService.repos;
+    this.profileService.reposRequest().subscribe(data => {
+      console.log(data);
+      data.forEach(repo => {
+        this.repos.push(repo);
+      });
+      
+    });
+    // this.repos = this.profileService.repos;
   }
 
 }

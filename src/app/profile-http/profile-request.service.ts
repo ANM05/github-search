@@ -35,7 +35,7 @@ export class ProfileRequestService {
     }
 
     let promise=new Promise((resolve,reject)=>{
-      this.http.get<ProfileResponse>(this.apiUrl).toPromise().then(response=>{
+      this.http.get<ProfileResponse>(this.apiUrl+environment.token).toPromise().then(response=>{
         this.user.name=response.name;
         this.user.login=response.login;
         this.user.avatar_url=response.avatar_url;
@@ -63,6 +63,7 @@ export class ProfileRequestService {
    }
 
    reposRequest(): Observable<Repositories[]>{
-     return this.http.get<Repositories[]>(this.apiUrl+"/repos")
+     return this.http.get<Repositories[]>(this.apiUrl+"/repos"+environment.token)
+    
    }
 }
