@@ -13,12 +13,13 @@ export class ProfileRequestService {
   userName ="anm05";
   user:Users;
   repos:Repositories;
+  apiUrl = "https://api.github.com/users/"+this.userName;
 
   constructor(private http:HttpClient) {
     this.user= new Users("","","",0,0,0,"","","","");
     this.repos=new Repositories("","","");
    }
-
+    
    profileRequest(){
     interface ProfileResponse{
       name:string;
@@ -34,7 +35,7 @@ export class ProfileRequestService {
     }
 
     let promise=new Promise((resolve,reject)=>{
-      this.http.get<ProfileResponse>(environment.apiUrl).toPromise().then(response=>{
+      this.http.get<ProfileResponse>(this.apiUrl).toPromise().then(response=>{
         this.user.name=response.name;
         this.user.login=response.login;
         this.user.avatar_url=response.avatar_url;
@@ -61,8 +62,7 @@ export class ProfileRequestService {
     return promise;
    }
 
-   reposRequest(){
-     console.log(this.reposRequest())
-    return this.http.get<Repositories>(environment.reposUrl)
+   reposRequest(): Observable<Repositories[]>{
+     return this.http.get<Repositories[]>(this.apiUrl+"/repos")
    }
 }
