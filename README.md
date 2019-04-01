@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
+#### By Antony Maina
+
+## Description
+This is a webpage that allows a user to search any user on github and be able to see a list of their repositories
+
+## Project setup and installation
+-Install node js and npm
+-Install Angular Cli
+-git clone https://github.com/Antavio/Github-Search.git
+-cd Github-Search
+-atom . //For those using atom text editor.
+-code . //For those using Visual Studio editor.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -9,6 +22,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Technologies used
+Angular.
+MDBootstrap.
+Javascript.
+Typescript.
+CSS
+HTML
+
+## Support and contact details
+Incase of any issues do not hesitate to contact the developer throught this email: antonynganga05@gmail.com
 
 ## Build
 
@@ -25,3 +49,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Copyright (c) 2019 By Antony Maina
