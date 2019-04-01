@@ -11,14 +11,22 @@ import {Repositories} from '../repositories';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  userName = "anm05";
+  userName: string;
   user:Users;
   repos:Repositories[] = [];
 
   constructor(private profileService:ProfileRequestService) { }
 
   searchProfile(){
-
+    this.profileService.update(this.userName);
+    this.profileService.profileRequest();
+    this.profileService.reposRequest().subscribe(data => {
+      // console.log(data);
+       data.forEach(repo => {
+         this.repos.push(repo);
+       });
+       
+     });
   }
 
   ngOnInit() {
