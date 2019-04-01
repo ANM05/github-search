@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
@@ -19,7 +19,8 @@ import {ProfileRequestService} from './profile-http/profile-request.service';
     AppRoutingModule,
     HttpClientModule,
     NgProgressModule,// normal progress bar
-    NgProgressHttpModule
+    NgProgressHttpModule,
+    FormsModule
   ],
   providers: [ProfileRequestService],
   bootstrap: [AppComponent]
