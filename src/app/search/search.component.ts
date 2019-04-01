@@ -17,6 +17,10 @@ export class SearchComponent implements OnInit {
 
   constructor(private profileService:ProfileRequestService) { }
 
+  searchProfile(){
+
+  }
+
   ngOnInit() {
     this.profileService.profileRequest();
     this.user = this.profileService.user;  
@@ -27,7 +31,7 @@ export class SearchComponent implements OnInit {
       });
       
     });
-    // this.repos = this.profileService.repos;
+  
   }
 
 }

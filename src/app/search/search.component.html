@@ -4,7 +4,7 @@
     <div>
     <div class="jumbotron">
         <h3> {{user.name}} </h3> 
-        <p>Github username: ({{user.login}})</p>
+        <p>Username: ({{user.login}})</p>
     </div>
     <div>
         <div align="center">
@@ -23,15 +23,16 @@
     </p>
  </div>
  <div class="col col-6">
-     <form action="">
+     <form (ngSubmit)="searchProfile()" #searchForm='ngForm'>
          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Type in username">
          </div>
+         <button type="submit" class="btn btn-success btn-lg">Get started</button>
      </form>
      <hr class="hrstyle">
   <div *ngFor="let dispRepo of repos">    
       <ul class="list-group">
-          <li class="list-group-item"><h5>{{dispRepo.name}}</h5></li>
+          <li class="list-group-item list-group-item-dark"><h5>{{dispRepo.name}}</h5></li>
       </ul>
       <blockquote class="text-lg">
         <p>{{dispRepo.description}}</p>
