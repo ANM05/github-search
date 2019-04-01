@@ -28,9 +28,16 @@
             <input type="text" class="form-control" placeholder="Search">
          </div>
      </form>
- <P>Show the number of repositories here</P>
-  <div *ngFor="let dispRepo of repos">
-      <p>{{dispRepo.name}}</p>
+     <hr class="hrstyle">
+  <div *ngFor="let dispRepo of repos">    
+      <ul class="list-group">
+          <li class="list-group-item"><h5>{{dispRepo.name}}</h5></li>
+      </ul>
+      <blockquote class="text-lg">
+        <p>{{dispRepo.description}}</p>
+        <footer><cite><a href=" {{dispRepo.html_url}}" target="_blank">{{dispRepo.html_url}}</a></cite></footer>
+    </blockquote>
+    <hr class="hrstyle">
   </div>
 </div>
 </div>

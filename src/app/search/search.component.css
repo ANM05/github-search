@@ -1,5 +1,10 @@
 .jumbotron{
     border-radius: 0%;
     width: 100%;
+    background-color: #D27B34;
 }
-
+.hrstyle{
+    width: 100%;
+  margin-top: 3rem;
+  border-top: .2rem solid #D27B34;
+}

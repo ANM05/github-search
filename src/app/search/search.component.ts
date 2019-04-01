@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
     this.profileService.profileRequest();
     this.user = this.profileService.user;  
     this.profileService.reposRequest().subscribe(data => {
-      console.log(data);
+     // console.log(data);
       data.forEach(repo => {
         this.repos.push(repo);
       });

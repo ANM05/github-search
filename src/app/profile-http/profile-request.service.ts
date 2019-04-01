@@ -64,6 +64,6 @@ export class ProfileRequestService {
 
    reposRequest(): Observable<Repositories[]>{
      return this.http.get<Repositories[]>(this.apiUrl+"/repos"+environment.token)
-    
+     
    }
 }
