@@ -14,7 +14,7 @@ export class ProfileRequestService {
   user:Users;
   repos:Repositories;
   apiUrl = "https://api.github.com/users/";
-  token = environment.token;
+
 
   constructor(private http:HttpClient) {
     this.user= new Users("","","",0,0,0,"","","","");
@@ -37,7 +37,7 @@ export class ProfileRequestService {
     }
 
     let promise=new Promise((resolve,reject)=>{
-      this.http.get<ProfileResponse>(this.apiUrl+this.userName+environment.token).toPromise().then(response=>{
+      this.http.get<ProfileResponse>(this.apiUrl+this.userName).toPromise().then(response=>{
         this.user.name=response.name;
         this.user.login=response.login;
         this.user.avatar_url=response.avatar_url;
@@ -65,7 +65,7 @@ export class ProfileRequestService {
    }
 
    reposRequest(): Observable<Repositories[]>{
-     return this.http.get<Repositories[]>(this.apiUrl+this.userName+"/repos"+environment.token)
+     return this.http.get<Repositories[]>(this.apiUrl+this.userName+"/repos")
      
    }
    update(userName:string){
