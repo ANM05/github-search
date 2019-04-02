@@ -11,9 +11,11 @@ import {Repositories} from '../repositories';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  userName: string;
+  userName = "anm05";
   user:Users;
   repos:Repositories[] = [];
+
+  constructor(private profileService:ProfileRequestService) { }
 
   searchProfile(){
     this.profileService.update(this.userName);
@@ -21,15 +23,16 @@ export class SearchComponent implements OnInit {
     this.profileService.reposRequest();
   }
 
-  constructor(private profileService:ProfileRequestService) { }
-
-
   ngOnInit() {
     this.profileService.profileRequest();
     this.user = this.profileService.user;  
-    this.profileService.reposRequest();
-    this.repos = this.profileService.repos;  
-    
+    this.profileService.reposRequest().subscribe(data => {
+     // console.log(data);
+      data.forEach(repo => {
+        this.repos.push(repo);
+      });
+      
+    });
   
   }
 
